@@ -1,12 +1,16 @@
 # files under ./data
 data/*/*.feather
 data/*/*.pkl
+data/*/*.pickle
 data/*/*.csv
 data/*/*.tsv
 data/*/*.zip
 features/*.feather
 features/*.pkl
+features/*.pickle
 features/importances/*.png
+logs/*.pickle
+models/*.pickle
 
 # Created by https://www.gitignore.io/api/macos,python,jupyternotebook
 # Edit at https://www.gitignore.io/?templates=macos,python,jupyternotebook
