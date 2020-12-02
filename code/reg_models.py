@@ -3,6 +3,7 @@ import pandas as pd
 
 from sklearn.preprocessing import StandardScaler
 
+import xgboost as xgb
 import lightgbm as lgb
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor
@@ -21,21 +22,47 @@ class Model_Ridge:
     def __init__(self, params):
         self.params = params
         self.model = Ridge(**self.params)
-        #self.scaler = None
+        self.scaler = None
 
     def fit(self, tr_x, tr_y, va_x, va_y):
-        #self.scaler = StandardScaler()
-        #self.scaler.fit(tr_x)
-        #tr_x = self.scaler.transform(tr_x)
+        self.scaler = StandardScaler()
+        self.scaler.fit(tr_x)
+        tr_x = self.scaler.transform(tr_x)
         self.model.fit(tr_x, tr_y)
 
     def predict(self, x):
         #x = self.scaler.transform(x)
         #pred = self.model.predict(x)
         return self.model.predict(x)
+    
+# XGBM
+class Model_Xgb:
+    def __init__(self, params):
+        if 'max_depth' in params:
+            params['max_depth'] = int(params['max_depth'])
+        if 'n_jobs' in params:
+            params['n_jobs'] = int(params['n_jobs'])
+        if 'max_delta_step' in params:
+            params['max_delta_step'] = int(params['max_delta_step'])
+        
+        self.params = params
+        #self.model = xgb.XGBRegressor(**self.params)
+        
+    def fit(self, tr_x, tr_y, va_x, va_y):
+        num_round = 10
+        dtrain = xgb.DMatrix(tr_x, label=tr_y)
+        dvalid = xgb.DMatrix(va_x, label=va_y)
+        watchlist = [(dtrain, 'train'), (dvalid, 'eval')]
+        params = self.params
+        self.model = xgb.train(params, dtrain, num_round, evals=watchlist, verbose_eval=0)
+    
+    def predict(self, x):
+        data = xgb.DMatrix(x)
+        return self.model.predict(data)
+    
 
 # LightGBM
-class Model_LGBM:
+class Model_Lgbm:
     def __init__(self, params):
         if 'max_depth' in params:
             params['max_depth'] = int(params['max_depth'])
@@ -43,6 +70,16 @@ class Model_LGBM:
             params['num_leaves'] = int(params['num_leaves'])
         if 'min_data_in_leaf' in params:
             params['min_data_in_leaf'] = int(params['min_data_in_leaf'])
+        if 'n_estimators' in params:
+            params['n_estimators'] = int(params['n_estimators'])
+        if 'subsample_for_bin' in params:
+            params['subsample_for_bin'] = int(params['subsample_for_bin'])
+        if 'min_child_samples' in params:
+            params['min_child_samples'] = int(params['min_child_samples'])
+        if 'subsample_freq' in params:
+            params['subsample_freq'] = int(params['subsample_freq'])
+        if 'n_jobs' in params:
+            params['n_jobs'] = int(params['n_jobs'])
 
         self.params = params
         self.model = lgb.LGBMRegressor(**self.params)
@@ -111,12 +148,12 @@ class Model_SVR:
 # Neural Network
 class Model_NN:
 
-    def __init__(self, params):
-        self.params = params       
-
+    def __init__(self, params, input_x):
+        self.params = params
+    
         # Layer Setting
         self.model = Sequential()
-        self.model.add(Dropout(self.params['input_dropout'], input_shape=(train_x_nn.shape[1],)))# 入力層
+        self.model.add(Dropout(self.params['input_dropout'], input_shape=(input_x.shape[1],)))# 入力層
         for i in range(int(self.params['hidden_layers'])):# 中間層
             self.model.add(Dense(int(self.params['hidden_units'])))
             if self.params['batch_norm'] == 'before_act':
@@ -141,7 +178,7 @@ class Model_NN:
         # 目的関数、評価指標などの設定
         self.model.compile(loss='mean_squared_error',
                            optimizer=optimizer, metrics=['mse'])
-        
+
     def fit(self, tr_x, tr_y, va_x, va_y):
         # 標準化
         self.scaler = StandardScaler()

@@ -1,0 +1,224 @@
+*Stacking Structure
+	1a:LightGBM
+	1b:SVR
+	1c:NeuralNetwork
+	1d:RandomForest
+	1e:ExtraTrees
+	2a:Ridge
+	2b:LightGBM
+
+*Score
+	1a+1c+2a	2.8663610
+	1a+1b+2a	2.5863372
+	1a+1b+1e+2a	2.6385186
+
+	1a+1b+1d+2a	2.5847143	2020-11-21-14-12-37
+		model_1a(lgb) score: 2.8904
+		model_1b(svr) score: 3.7271
+		model_1a(rf) score: 2.9357
+
+		model_2a(rid) score: 2.8399
+
+	1a+1b+1d+2	2.5707002	2020-11-22-11-22-28
+		reg horsepower
+		model_1a(lgb) score: 2.9336
+		model_1b(svr) score: 3.7334
+		model_1a(rf) score: 2.9865
+
+		model_2a(rid) score: 2.8757
+
+	1a+1b+1d+2	2.6085567	2020-11-22-13-28-05
+		reg horsepower, add pwr
+		model_1a(lgb) score: 2.8536
+		model_1b(svr) score: 4.0921
+		model_1d(rf) score: 3.0051
+
+		model_2a(rid) score: 2.8516
+
+	1a+1b+1d+2	2.5823441	2020-11-22-14-22
+		reg horsepower, add pwr, drop car_brand
+		model_1a(lgb) score: 2.9336
+		model_1b(svr) score: 3.7334
+		model_1a(rf) score: 2.9865
+
+		model_2a(rid) score: 2.8757
+
+★	1a+1b+1d+2	2.5627492	2020-11-22-14-44
+		reg horsepower, drop car_brand
+		model_1a(lgb) score: 2.9425
+		model_1b(svr) score: 3.7356
+		model_1d(rf) score: 2.9287
+
+		model_2a(rid) score: 2.8517
+
+	1a+1b+1d+2	2.5630157	2020-11-22-15-31-00
+		reg horsepower(using mpg), drop car_brand
+		model_1a(lgb) score: 2.8731
+		model_1b(svr) score: 3.7347
+		model_1d(rf) score: 2.9282
+
+		model_2a(rid) score: 2.8482
+
+	1a+1b+1d+2b	2.6107488	2020-11-24-06-53-36
+		reg horsepower, drop car_brand
+		model_1a(lgb) score: 2.8432
+		model_1b(svr) score: 3.7331
+		model_1d(rf) score: 2.9994
+
+		model_2b(lgb) score: 2.8971
+
+	1a+1b+1d+2a	2.6221479	2020-11-25-06-34-50
+		reg horsepower, drop car name(lgb), drop horsepower(svr)
+		model_1a(lgb) score: 2.7894
+		model_1b(svr) score: 3.6907
+		model_1d(rf) score: 2.9670 
+
+		model_2a(rid) score: 2.7386
+
+	1a+1b+1d+2b	2.7069502	2020-11-25-06-34-50
+		reg horsepower, drop car name(lgb), drop horsepower(svr)
+		model_1a(lgb) score: 2.7894
+		model_1b(svr) score: 3.6907
+		model_1d(rf) score: 2.9670 
+
+		model_2b(lgb) score: 2.9455
+
+	1a+1b+1c+1d+2a 3.1520226	2020-11-27-07-21-22
+		reg horsepower, change enc-method
+		model_1a(lgb) score: 2.8513
+		model_1b(svr) score: 3.1948
+		model_1c(nn) score: 2.4876
+		model_1d(rf) score: 2.9769
+
+		model_2a(rid) score: 2.7043
+
+	1a+1b+1c+1d+2a 3.1721888	2020-11-27-07-21-22
+		reg horsepower, change enc-method
+		model_1a(lgb) score: 2.8513
+		model_1b(svr) score: 3.1948
+		model_1c(nn) score: 2.4876
+		model_1d(rf) score: 2.9769
+
+		model_2b(lgb) score: 2.7763
+
+	1a+1b+1c+1d+2a	3.1310009	2020-11-27-21-06-00
+	reg horsepower, change enc-method
+		model_1a(lgb) score: 2.8490
+		model_1b(svr) score: 3.1967
+		model_1c(nn) score: 2.3880
+		model_1d(rf) score: 2.9754
+
+		model_2b(lgb) score: 2.4918
+
+	1a+1b+1d+2a 	2.6454434	2020-11-27-21-12-33
+	reg horsepower, change enc-method
+		model_1a(lgb) score: 2.8490
+		model_1b(svr) score: 3.1967
+		model_1d(rf) score: 2.9754
+
+		model_2b(lgb) score: 2.8355
+
+	1a+1b+1d+2a 	2.6957866	2020-11-27-21-27-15
+	reg horsepower, change enc-method
+		model_1a(lgb) score: 2.8786
+		model_1b(svr) score: 3.2127
+		model_1d(rf) score: 2.9347
+
+		model_2b(lgb) score: 2.8911
+
+	neural-network	3.4863754	2020-11-29-11-02-29
+		score: 2.4543126077061173
+
+	stacking 3-layers	2.6525239	2020-11-29-13-41-55
+		model_1a(lgb) score: 2.8980
+		model_1b(svr) score: 3.2294
+		model_1d(rf) score: 2.9205
+
+		model_2a(rid) score: 2.8403
+		model_2b(lgb) score: 2.9095
+		model_2c(rf) score: 2.9749
+		
+		model_3(rid) score: 2.8689
+
+	stacking 3-layers	2.6940510	2020-11-29-13-57-07
+		model_1a(lgb) score: 2.8980
+		model_1b(svr) score: 3.2294
+		model_1d(rf) score: 2.9205
+
+		model_2a(rid) score: 2.8403
+		model_2b(lgb) score: 2.9095
+		model_2c(rf) score: 3.0194
+		model_2d(svr) score: 3.4292
+
+		model_3(rid) score: 2.7832
+
+	stacking 3-layers	2.8941060	2020-11-29-14-09-32
+		model_1a(lgb) score: 2.8980
+		model_1b(svr) score: 3.2294
+		model_1c(nn) score: 2.7679
+		model_1d(rf) score: 2.9171
+
+		model_2a(rid) score: 2.7047
+		model_2b(lgb) score: 2.6467
+		model_2c(rf) score: 2.6690
+		model_2d(svr) score: 3.2815
+
+		model_3(rid) score: 2.6404
+
+	stacking 3-layers	3.0578851	2020-11-29-14-34-02
+		model_1a(lgb) score: 2.8980
+		model_1b(svr) score: 3.2294
+		model_1c(nn) score: 2.7679
+
+		model_2b(lgb) score: 2.6392
+		model_2d(svr) score: 3.2023
+		
+		model_3(rid) score: 2.6567
+
+
+	stacking 2-layers	3.2016751	2020-11-29-20-26-33
+		model_1b(svr) score: 3.2267
+		model_1c(nn) score: 2.2939
+		model_1d(rf) score: 2.9773
+		
+		model_2a(rid) score: 2.3659
+
+	stacking 2-layers	2.6900360	sub_2020-11-30-07-22-25_stack_3.csv
+		model_1a(lgb) score: 2.8843
+		model_1b(svr) score: 3.2369
+		model_1d(rf) score: 3.0053
+		model_1e(xgb) score: 3.1301
+
+		model_2a(rid) score: 2.9354
+		model_2b(lgb) score: 2.9481
+
+		model_3(rid) score: 2.9406
+
+
+	stacking 3-layers	2.7332129	2020-11-30-21-19-25
+	drop horsepower
+		model_1a(lgb) score: 2.8395
+		model_1b(svr) score: 3.2253
+		model_1d(rf) score: 3.0246
+		model_1e(xgb) score: 3.1194
+
+		model_2a(rid) score: 2.8318
+		model_2b(lgb) score: 2.9456
+
+		model_3(rid) score: 2.8590
+
+	stacking 2-layers	2.7423221	2020-11-30-21-22-38
+	drop horsepower
+		model_1a(lgb) score: 2.8395
+		model_1b(svr) score: 3.2253
+		model_1d(rf) score: 2.9713
+
+		model_2a(rid) score: 2.8249
+
+
+	stacking 2-layers
+		model_1a(lgb) score: 2.8765
+		model_1b(svr) score: 3.6306
+		model_1d(rf) score: 2.8928	
+
+		model_2a(rid) score: 2.8404

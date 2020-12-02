@@ -1,0 +1,25 @@
+file_name											public_score	memo					datetime
+sub_2020-11-22-11-22-28_stack_lgb-svr-rf_rid.csv	2.5707002		Reg Horsepower & Sta...	2020-11-22 11:25:10
+sub_2020-11-21-09-59-27_stack_lgb-svr-nn_rid.csv	2.5863372		Stacking ...			2020-11-21 10:00:09
+sub_2020-11-21-09-44-43_stack_lgb-svr-nn_rid.csv	2.8663610		Stacking: ...			2020-11-21 09:46:12
+sub_2020-11-21-09-31-43_stack_lgb-svr-nn_rid.csv	3.0385302		Stacking ...			2020-11-21 09:33:05
+sub_2020-11-20-23-30-36_stack_lgb-svr-nn_lr.csv		2.8871147		Stacking ...			2020-11-20 23:31:08
+ub_2020-11-20-23-15-05_stack_lgb-svr-nn_lr.csv		2.8866726		Stacking ...			2020-11-20 23:28:13
+sub_2020-11-18-20-12-03_lightgbm.csv				2.6933051		without: car name,		2020-11-18 20:15:13
+sub_2020-11-17-06-19-21_stack_lgb-svr-nn_lr.csv		2.7012012		Stacking ...			2020-11-17 06:29:15
+sub_2020-11-16-22-02-29_nn.csv						3.5981461		neural network ...		2020-11-16 22:05:07
+sub_2020-11-15-22-44-23_nn.csv						10.7516194		neural network			2020-11-15 22:46:12
+sub_2020-11-15-17-32-15_stack_svr-lgb_lr.csv		2.5949178		Stacking: ...			2020-11-15 17:47:14
+sub_2020-11-15-14-44-13_ensamble_lgb-svr.csv		2.6866520		ensamble ...			2020-11-15 14:47:09
+sub_2020-11-14-17-10-45_nn.csv						9.8064148		model:neural network	2020-11-14 17:13:12
+sub_2020-11-14-14-34-41_ensambl_gb_svr_xgb.csv		4.2522986		ensambling				2020-11-14 14:37:05
+sub_2020-11-14-10-39-58_lightgbm.csv				2.6630030		LightGBM				2020-11-14 10:42:04
+sub_2020-11-14-09-20-22_lightgbm.csv				2.6474973		program tuning			2020-11-14 09:25:07
+sub_2020-11-13-06-43-38_lightgbm.csv				2.7949293		feature change 			2020-11-13 07:00:09
+sub_2020-11-10-06-53-19_lightgbm.csv				2.7336274		tuning bit				2020-11-10 06:55:11
+sub_2020-11-10-06-42-17_lightgbm.csv				2.8350658		Change hyperopt ...		2020-11-10 06:50:05
+sub_2020-11-09-07-00-28_lightgbm.csv				2.8852104		reupdate ...			2020-11-09 07:01:07
+sub_2020-11-09-06-53-21_lightgbm.csv				2.8426178		add power weight rat...	2020-11-09 06:55:10
+sub_2020-11-07-18-43-49_lightgbm.csv				2.7801489		change hyperopt's sc...	2020-11-07 20:18:11
+sub_2020-11-07-13-38-16_lightgbm.csv				2.8980563		second submission ...	2020-11-07 13:42:05
+sub_2020-11-07-07-51-04_LinearReg.csv				4.3099100		first submission ...	2020-11-07 07:54:06
